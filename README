@@ -1,0 +1,4 @@
+== Plugins used ==
+script/plugin install git://github.com/ryanb/nifty-generators.git
+script/plugin install git://github.com/courtenay/acts_like_git.git
+script/plugin install git://github.com/technoweenie/grit.git
