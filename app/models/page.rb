@@ -37,7 +37,7 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
         self.permalink = permalink
         self.content = read_file("content.text.textile")
         self.name = read_file("name.text.textile")
-        self.id = page_dir.hash.abs if File.directory? page_dir
+        self.id = page_path.hash.abs if File.directory? page_path
       end
       self.content = attributes[:content] if attributes[:content]
       self.name = attributes[:name] if attributes[:name]
@@ -53,21 +53,21 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   end
 
   def exists?
-    page_dir && File.directory?(page_dir)
+    page_path && File.directory?(page_path)
   end
 
   def save
-    return false if File.file? page_dir # todo file exists with that name, add to errors
+    return false if File.file? page_path # todo file exists with that name, add to errors
 
-    unless File.exists?(page_dir)
+    unless File.exists?(page_path)
       begin
-        Dir.mkdir(page_dir)
+        Dir.mkdir(page_path)
       rescue SystemCallError
         return false  # todo directory couldn't be created, add to errors
       end
     end
 
-    Dir.open(page_dir) do |dir|
+    Dir.open(page_path) do |dir|
       File.open(File.join(dir.path, "content.text.textile"), 'w') {|f| f.write(content) }
       File.open(File.join(dir.path, "name.text.textile"), 'w') {|f| f.write(name) }
     end
@@ -83,12 +83,12 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
     "./app/views/pages/"
   end
 
-  def page_dir
+  def page_path
     @page_dir ||= !permalink.nil? && File.join(Page.pages_path, permalink)
   end
 
   def read_file(basename)
-    filepath = File.join(page_dir, basename)
+    filepath = File.join(page_path, basename)
     s = ''
     File.exists?(filepath) && File.open(filepath, 'r') do |f|
       s = f.read
@@ -97,7 +97,7 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   end
 
   def destroy_dir
-    FileUtils.remove_dir(page_dir) if File.directory? page_dir
+    FileUtils.remove_dir(page_path) if File.directory? page_path
   end
 
 end
