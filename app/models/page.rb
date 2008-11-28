@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'git'
 
 class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
@@ -60,21 +61,29 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
     unless File.exists?(page_path)
       begin
         Dir.mkdir(page_path)
+        
       rescue SystemCallError
         return false  # todo directory couldn't be created, add to errors
       end
     end
 
     Dir.open(page_path) do |dir|
-      File.open(File.join(dir.path, "content.text.textile"), 'w') {|f| f.write(content) }
-      File.open(File.join(dir.path, "name.text.textile"), 'w') {|f| f.write(name) }
-      commit
+      write_file(File.join(dir.path, "content.text.textile"), content)
+      write_file(File.join(dir.path, "name.text.textile"), name)
+
+      g = git
+      g.add(page_path)
+      g.commit("Saving #{permalink}")
+      true
     end
   end
 
   def destroy
     destroy_dir
-    commit
+    g = git
+    g.remove(page_path)
+    g.commit("Removing #{permalink}")
+    true
   end
   
   private
@@ -85,6 +94,10 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   def page_path
     @page_dir ||= !permalink.nil? && File.join(Page.pages_path, permalink)
+  end
+
+  def write_file(filepath, content)
+    File.open(filepath, 'w') {|f| f.write(content) }
   end
 
   def read_file(basename)
@@ -100,10 +113,11 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
     FileUtils.remove_dir(page_path) if File.directory? page_path
   end
 
-  def commit
-    
-    puts "commit"
-    true
+  def git
+    g = Git.open(".")
+    g.config('user.name', 'User Name')
+    g.config('user.email', 'email@email.com')
+    g
   end
 
 end
