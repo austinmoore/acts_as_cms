@@ -10,8 +10,6 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   validates_presence_of :name, :permalink
 
-  before_destroy :destroy_page
-
   #  versioning(:content) do |version|
   #    version.repository = '/Users/amoore/Sites/rails/pages/.git'
   #    version.message = lambda { |page| "Change to #{page.permalink}" }
@@ -70,11 +68,13 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
     Dir.open(page_path) do |dir|
       File.open(File.join(dir.path, "content.text.textile"), 'w') {|f| f.write(content) }
       File.open(File.join(dir.path, "name.text.textile"), 'w') {|f| f.write(name) }
+      commit
     end
   end
 
   def destroy
     destroy_dir
+    commit
   end
   
   private
@@ -98,6 +98,12 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   def destroy_dir
     FileUtils.remove_dir(page_path) if File.directory? page_path
+  end
+
+  def commit
+    
+    puts "commit"
+    true
   end
 
 end
