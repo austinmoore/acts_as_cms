@@ -10,6 +10,8 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   validates_presence_of :name, :permalink
 
+  before_destroy :destroy_page
+
   #  versioning(:content) do |version|
   #    version.repository = '/Users/amoore/Sites/rails/pages/.git'
   #    version.message = lambda { |page| "Change to #{page.permalink}" }
@@ -25,7 +27,8 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   end
 
   def self.find_by_permalink(permalink)
-    Page.new(:permalink => permalink) if File.directory?(pages_path + permalink)
+    page = Page.new(:permalink => permalink)
+    page.new_record? ? nil : page
   end
 
   def initialize(attributes = {})
@@ -43,6 +46,14 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   def to_param
     permalink
+  end
+
+  def new_record?
+    !exists?
+  end
+
+  def exists?
+    page_dir && File.directory?(page_dir)
   end
 
   def save
@@ -63,9 +74,9 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   end
 
   def destroy
-    FileUtils.remove_dir(page_dir) if File.directory? page_dir
+    destroy_dir
   end
-
+  
   private
 
   def self.pages_path
@@ -73,16 +84,20 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   end
 
   def page_dir
-    @page_dir ||= File.join(Page.pages_path, permalink)
+    @page_dir ||= !permalink.nil? && File.join(Page.pages_path, permalink)
   end
 
   def read_file(basename)
     filepath = File.join(page_dir, basename)
     s = ''
-    File.open(filepath, 'r') do |f|
+    File.exists?(filepath) && File.open(filepath, 'r') do |f|
       s = f.read
     end
     s
+  end
+
+  def destroy_dir
+    FileUtils.remove_dir(page_dir) if File.directory? page_dir
   end
 
 end

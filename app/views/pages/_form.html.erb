@@ -1,4 +1,4 @@
-<% form_tag (@page.new_record? ? pages_path : page_path(@page)),
+<% form_tag (@page.new_record? ? {:controller=>"pages", :action=>"create"} : page_path(@page)),
     @page.new_record? ? {:method => :post} : {:method => :put}   do %>
 
   <% fields_for :page, @page do |f| -%>
