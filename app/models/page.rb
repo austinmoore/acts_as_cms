@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
   attr_accessor :permalink, :content, :name, :id
@@ -58,6 +60,10 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
       File.open(File.join(dir.path, "content.text.textile"), 'w') {|f| f.write(content) }
       File.open(File.join(dir.path, "name.text.textile"), 'w') {|f| f.write(name) }
     end
+  end
+
+  def destroy
+    FileUtils.remove_dir(page_dir) if File.directory? page_dir
   end
 
   private
