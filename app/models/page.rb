@@ -1,5 +1,7 @@
 require 'fileutils'
 require 'git'
+require 'rubygems'
+require 'ya2yaml'
 
 class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
@@ -80,7 +82,7 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
   def save
     # todo page exists with that permalink, add to errors
 
-    write_file(page_path, self.to_yaml)
+    write_file(page_path, self.ya2yaml)
 
     #      g = git
     #      g.add(page_path)

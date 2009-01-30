@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth", :version => ">= 3.301", :source => "http://code.whytheluckystiff.net"
   config.gem 'schacon-git', :source => 'http://gems.github.com', :lib => 'git'
   config.gem "mime-types", :lib => "mime/types", :version => '>= 1'
+  config.gem "ya2yaml", :version => '>= 0.26'
   #config.gem "mojombo-grit", :lib => "grit", :version => ">= 0.9.4"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
