@@ -1,6 +1,6 @@
 --- !ruby/object:Page 
   content: |-
-      This is the home page. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc. Aliquam ultrices. Pellentesque congue. Cras quam. Aliquam in nulla quis pede scelerisque semper. In diam erat, tincidunt ut, porttitor ac, sodales scelerisque, massa. Sed velit. Suspendisse pede turpis, feugiat id, viverra vel, rutrum ac, orci. Vivamus id sapien. Quisque non orci.
+      This is the *home page*. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc. Aliquam ultrices. Pellentesque congue. Cras quam. Aliquam in nulla quis pede scelerisque semper. In diam erat, tincidunt ut, porttitor ac, sodales scelerisque, massa. Sed velit. Suspendisse pede turpis, feugiat id, viverra vel, rutrum ac, orci. Vivamus id sapien. Quisque non orci.
       
       Morbi iaculis facilisis quam. Quisque dui. Donec facilisis nulla facilisis pede. Praesent tellus eros, tincidunt fringilla, placerat non, gravida et, quam. Maecenas venenatis hendrerit ligula. Nullam nisl mi, bibendum et, dignissim ut, pretium non, sem. In tristique. In libero purus, iaculis non, dictum id, semper ac, pede. Vestibulum pulvinar molestie purus. Phasellus libero lacus, luctus non, gravida at, cursus vel, lorem. Suspendisse potenti.
       
