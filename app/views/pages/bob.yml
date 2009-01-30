@@ -1,4 +1,4 @@
 --- !ruby/object:Page 
-  content: "bob bobob oa bob bo bo"
+  content: "bob bobob oa bob bo bo *bold bold bold*"
   name: bob
   permalink: bob
