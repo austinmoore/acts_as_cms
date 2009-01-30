@@ -1,10 +1,5 @@
-<% title @page.name %>
+<%- title @page.name, false %>
 
 <%= RedCloth.new(@page.content).to_html %>
 
 <%- # todo hide these links when the user is not an admin - maybe add openid real quick and only show the links if you're logged in %>
-<p>
-  <%= link_to "Edit", edit_page_path(@page) %> |
-  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", pages_path %>
-</p>
