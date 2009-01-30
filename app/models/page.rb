@@ -1,6 +1,6 @@
 require 'fileutils'
-require 'git'
 require 'rubygems'
+require 'git'
 require 'ya2yaml'
 
 class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
@@ -84,16 +84,15 @@ class Page < ActiveRecord::BaseWithoutTable # < ActiveRecord::Base
 
     write_file(page_path, self.ya2yaml)
 
-    #      g = git
-    #      g.add(page_path)
-    #      g.commit("Saving #{permalink}")
+    g = git
+    g.add(page_path)
+    g.commit("Saving #{permalink}")
   end
 
   def destroy
-    File.delete(page_path)
-#    g = git
-    #    g.remove(page_path)
-    #    g.commit("Removing #{permalink}")
+    g = git
+    g.remove(page_path)
+    g.commit("Removing #{permalink}")
     true
   end
 

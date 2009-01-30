@@ -1,23 +1,25 @@
 class PagesController < ApplicationController
 
-  before_filter :page, :only => [:show, :edit, :update, :destroy]
+  before_filter :page, :only => [:edit, :update, :destroy]
   
   def index
     @pages = Page.all
   end
   
   def show
-
+    @page = Page.find_by_permalink(params[:id])
+    if @page.nil?
+      redirect_to new_page_path(:permalink => params[:id])
+    end
   end
   
   def new
-    @page = Page.new
+    @page = Page.new(params)
   end
   
   def create
     @page = Page.new(params[:page])
     if @page.save
-      flash[:notice] = "Successfully created page."
       redirect_to @page
     else
       render :action => 'new'
@@ -30,7 +32,6 @@ class PagesController < ApplicationController
   
   def update
     if @page.update_attributes(params[:page])
-      flash[:notice] = "Successfully updated page."
       redirect_to @page
     else
       render :action => 'edit'
