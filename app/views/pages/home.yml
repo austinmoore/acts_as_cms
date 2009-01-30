@@ -1,4 +1,9 @@
 --- !ruby/object:Page 
-  content: "This is the home page."
+  content: |-
+      This is the home page. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc. Aliquam ultrices. Pellentesque congue. Cras quam. Aliquam in nulla quis pede scelerisque semper. In diam erat, tincidunt ut, porttitor ac, sodales scelerisque, massa. Sed velit. Suspendisse pede turpis, feugiat id, viverra vel, rutrum ac, orci. Vivamus id sapien. Quisque non orci.
+      
+      Morbi iaculis facilisis quam. Quisque dui. Donec facilisis nulla facilisis pede. Praesent tellus eros, tincidunt fringilla, placerat non, gravida et, quam. Maecenas venenatis hendrerit ligula. Nullam nisl mi, bibendum et, dignissim ut, pretium non, sem. In tristique. In libero purus, iaculis non, dictum id, semper ac, pede. Vestibulum pulvinar molestie purus. Phasellus libero lacus, luctus non, gravida at, cursus vel, lorem. Suspendisse potenti.
+      
+      Quisque vehicula lorem eget magna. Proin rutrum. Ut viverra nibh non lacus malesuada ornare. Fusce condimentum, justo eget varius semper, eros massa aliquet orci, vel ornare pede lectus in mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque gravida dignissim urna. Integer vulputate augue ut justo. Nunc placerat, sem sit amet tincidunt tincidunt, nulla leo scelerisque diam, vestibulum molestie nunc lorem non ligula. In vestibulum dapibus lacus. Suspendisse porttitor diam et mi. Vestibulum eget nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce rhoncus auctor lectus. Nullam justo arcu, congue vitae, posuere ac, tincidunt ut, enim. Nullam luctus fermentum ligula.
   name: Home
   permalink: home
