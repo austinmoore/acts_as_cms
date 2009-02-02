@@ -1,9 +1,0 @@
---- !ruby/object:Page 
-  content: |-
-      This is the *about page*. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus magna felis, pulvinar ac, iaculis ac, fermentum eget, mi. Cras dictum turpis volutpat urna. In hac habitasse platea dictumst. Etiam malesuada faucibus tortor. Morbi ante sem, accumsan eget, convallis eu, condimentum eu, turpis. Nullam tempus magna ut tortor. Vivamus sit amet dolor aliquam eros posuere pharetra. Nam ornare sem at tellus. Curabitur interdum laoreet erat. Nullam hendrerit odio eget sapien. Maecenas at est quis mauris pharetra aliquam.
-      
-      Vivamus blah arcu sit amet augue. Aenean rutrum. Duis quis nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum quis quam. Integer id velit a diam venenatis viverra. Quisque neque. Nulla pulvinar cursus libero. Duis augue. Sed in enim quis ligula iaculis volutpat. Ut augue eros, malesuada ac, suscipit eget, sodales nec, enim. Nam turpis mi, semper sed, lacinia vel, convallis eget, quam. Nullam consectetur diam at velit. Aliquam vel ante sed eros varius tempor. Sed nunc.
-      
-      Phasellus nec libero in tellus egestas sollicitudin. Nulla aliquam turpis id felis porta vulputate. Integer lacus mauris, blandit vitae, hendrerit at, rhoncus ut, nulla. Nulla faucibus dignissim enim. Phasellus at tortor. Pellentesque fringilla metus id orci semper tincidunt. Nunc et risus faucibus odio rutrum placerat. Vestibulum ipsum risus, scelerisque eu, pretium ut, malesuada at, sem. Aliquam dictum, lectus a varius hendrerit, est leo eleifend dui, vitae placerat metus lacus euismod dui. Etiam auctor mattis lorem. Ut adipiscing. Proin felis.
-  name: About
-  permalink: about
