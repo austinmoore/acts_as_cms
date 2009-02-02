@@ -1,0 +1,4 @@
+--- !ruby/object:Page 
+  content: "This is the *contact* page."
+  name: Contact
+  permalink: contact
