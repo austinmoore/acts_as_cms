@@ -1,4 +1,4 @@
 --- !ruby/object:Page 
-  content: "Hello this is who we are."
+  content: "Hello this is *who we are*."
   name: About
   permalink: about
