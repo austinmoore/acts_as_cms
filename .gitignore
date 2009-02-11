@@ -7,3 +7,4 @@ config/database.yml
 db/*.sqlite3
 .idea/workspace.xml
 *.iml
+.idea
