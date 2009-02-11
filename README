@@ -42,29 +42,31 @@ Is an author more like a developer or more like a user?
 
 I would argue that an author is more like a developer:
 
-1. Given a website, xyz.com, can a visitor to that website tell whether the content comes from an author or a developer?
-No.  It is possible to tell user generated content apart though.
+1. Given a website, xyz.com, can a visitor to that website tell whether the content comes from an author or a
+developer? No.  It is possible to tell user generated content apart though.
 
-2. Ideally, when the website is made live, the content from authors and developers is set. The users content is the only
-thing that changes.
+2. Ideally, when the website is made live, the content from authors and developers is set. The users content is the
+only thing that changes.
 
 
-"Yeah, but what about a newspaper's website" you say.  They have authors (i.e. journalists who write articles) and users
-(i.e. visitors to the site that comment on the articles).  The content from the journalists and from the users changes
-daily.  The content provided by the software developer changes at a much slower pace (monthly?).  Would we want to
-redeploy the website for every article the journalist writes?  No.  Don't we want to be able to search for old artilces?
-Yes.
+"Yeah, but what about a newspaper's website" you say.  They have authors (i.e. journalists who write articles) and
+users (i.e. visitors to the site that comment on the articles).  The content from the journalists and from the users
+changes daily.  The content provided by the software developer changes at a much slower pace (monthly at the most).
+Would we want to redeploy the website for every article the journalist writes?  No.  Don't we want to be able to
+search for old articles? Yes.
 
 Ok. Ok.  I admit, there are cases when a traditional cms backed by a traditional database is the best solution.
 However, by the same token, I argue that their are other cases in which a traditional cms with a database is not the
 best solution.
 
 
-Take the following case.  We have a small website which consists mainly of a few web apps (e.g. dynamic content).
-There are a few exceptions though.  There is an 'about', 'contact' and a few other pages (e.g. static content). Typically,
-the few static pages wouldn't warrant the use of a full blown cms.  The developers would simply program those pages too.
-Whenever the website owner's address changes, he'd call up the developer and ask him to update it.  The developer
-would make the change and redeploy the site.
+Take the following case.  We have a small website which consists mainly of a few applications (e.g. dynamic content).
+There are a few exceptions though.  There is an 'about', 'contact' and a few other pages (e.g. static content).
+Typically, the few static pages wouldn't warrant the use of a full blown cms.  The developers would simply program
+those pages too. Whenever the website owner's address changes, he'd call up the developer and ask him to update it.
+The developer would make the change and redeploy the site.  The website owner is constantly on the move, so his address
+needs to be updated quite often.  Eventually the developer implements a micro cms for the website.  The owner can
+now change his own address and all of the other static pages.  The pages are saved in the application's database.
 
 Let's take a look at this scenario closer...
 
@@ -81,7 +83,7 @@ Shouldn't the website look the same for the developers as it does for the users?
 
 Ok. Lets wrap things up here.  I think there are certain scenarios where a website just barely needs a cms, but the
 content from that cms is more closely related to source code than user generated content.  For said scenarios, saving
-the author's content in source control would make more sense than saving it in a database.
+the author's content in source control might make more sense than saving it in a database.
 
 
 == Next steps ==
@@ -102,7 +104,7 @@ the author's content in source control would make more sense than saving it in a
 prototype.
 
 
-3. Try out the modified micro cms on a real project and evaluate in the real world.
+3. Try out the modified micro cms on a real project and evaluate it in the real world.
 
 
 == Getting started ==
@@ -116,4 +118,4 @@ prototype.
 == Plugins used ==
 
 ActiveRecordBaseWithoutTable
-script/plugin install git://github.com/ryanb/nifty-generators.git
+ryanb/nifty-generators
