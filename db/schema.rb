@@ -9,15 +9,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081127114207) do
-
-  create_table "pages", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "current_version"
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
